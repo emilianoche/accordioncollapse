@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-
-export default class BoxAccordion extends Component {  
+import PropTypes from 'prop-types';
+ class BoxAccordion extends Component {  
   render(){
-  const { indexPosition, currentPosition } = this.props;
-    return(
+    const { indexPosition, currentPosition, onHandleClick, content: { title, text } } = this.props;
+     return(
       <div>
-        <button className="accordion-button" id={indexPosition} onClick={this.props.onHandleClick(currentPosition)}>{this.props.content.title}</button>
+        <button className="accordion-button" id={indexPosition} onClick={onHandleClick(currentPosition)}>{title}</button>
           <div className={parseInt(indexPosition) ===  currentPosition ? "panel open" : "panel"}>
-            <p>{this.props.content.text}</p>
+            <p>{text}</p>
           </div>
       </div>
     )
   }
 }
+
+BoxAccordion.propTypes = {
+  indexPosition: PropTypes.number,
+  currentPosition: PropTypes.string
+}
+
+export default BoxAccordion;
