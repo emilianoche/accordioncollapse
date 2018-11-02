@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 export default class BoxAccordion extends Component {  
   render(){
+  const { indexPosition, currentPosition } = this.props;
     return(
       <div>
-        <button className="accordion-button" id={this.props.indexPosition} onClick={this.props.onHandleClick(this.props.currentPosition)}>{this.props.content.title}</button>
-          <div className={this.props.indexPosition == this.props.currentPosition ? "panel open" : "panel"}>
+        <button className="accordion-button" id={indexPosition} onClick={this.props.onHandleClick(currentPosition)}>{this.props.content.title}</button>
+          <div className={parseInt(indexPosition) ===  currentPosition ? "panel open" : "panel"}>
             <p>{this.props.content.text}</p>
           </div>
       </div>
