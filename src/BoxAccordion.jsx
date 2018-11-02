@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
      return(
       <div>
         <button className="accordion-button" id={indexPosition} onClick={onHandleClick(currentPosition)}>{title}</button>
-          <div className={parseInt(indexPosition) ===  currentPosition ? "panel open" : "panel"}>
+          <div className={indexPosition ===  parseInt(currentPosition) ? "panel open" : "panel"}>
             <p>{text}</p>
           </div>
       </div>
